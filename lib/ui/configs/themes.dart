@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:klassrum/ui/configs/styles.dart';
+import 'package:klassrum_web/ui/configs/styles.dart';
 
 class AppTheme {
   static ThemeData buildTheme() {
@@ -19,7 +19,7 @@ class AppTheme {
     return const AppBarTheme(
       backgroundColor: AppColors.trueWhiteColor,
       foregroundColor: AppColors.greyColor,
-      centerTitle: true,
+      centerTitle: false,
       elevation: 0.0,
     );
   }

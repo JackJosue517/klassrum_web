@@ -46,6 +46,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   table_calendar: ^3.0.9
   avatars: ^3.0.2
+  linkwell: ^2.0.6
   intl:
   
 

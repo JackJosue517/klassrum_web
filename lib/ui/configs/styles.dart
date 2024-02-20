@@ -12,7 +12,7 @@ class AppColors {
 
   static const Color darkColor = Color(0xFF363C32);
 
-  static const Color greyColor =  Color.fromRGBO(66, 66, 66, 1);
+  static const Color greyColor = Color.fromRGBO(66, 66, 66, 1);
 
   static const Color transparentColor = Colors.transparent;
 
@@ -26,6 +26,14 @@ class AppColors {
 class AppText {
   static TextStyle headline1 = GoogleFonts.roboto(
     fontSize: 34,
+  );
+
+  static TextStyle headlineA = GoogleFonts.roboto(
+    fontSize: 38,
+  );
+
+  static TextStyle headlineB = GoogleFonts.roboto(
+    fontSize: 36,
   );
 
   static TextStyle headline2 = GoogleFonts.roboto(

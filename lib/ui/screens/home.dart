@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:klassrum_web/ui/pages/dashboard.dart';
+import 'package:klassrum_web/ui/pages/welcome.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,8 +10,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final bool _isLogged = false;
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return _isLogged ? const DashboardPage() : const WelcomePage();
   }
 }
