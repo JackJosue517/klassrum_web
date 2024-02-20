@@ -12,10 +12,15 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dashboard'),
-      ),
-      drawer: const CustomNavigationDrawer(),
-    );
+        appBar: AppBar(
+          title: const Text('Dashboard'),
+        ),
+        drawer: const CustomNavigationDrawer(),
+        body: Center(
+            child: TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/call-room');
+                },
+                child: const Text('Rejoindre la session'))));
   }
 }

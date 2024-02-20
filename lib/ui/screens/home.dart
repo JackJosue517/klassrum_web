@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final bool _isLogged = false;
+  final bool _isLogged = true;
 
   @override
   Widget build(BuildContext context) {

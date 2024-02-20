@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:klassrum_web/ui/configs/styles.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:linkwell/linkwell.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -12,18 +11,6 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  late PageController _pageController;
-  final _pages = const [
-    Text('1'),
-    Text('2'),
-    Text('3'),
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +75,9 @@ class _WelcomePageState extends State<WelcomePage> {
                   elevation: 0,
                   shape: const RoundedRectangleBorder(),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/login');
+                },
                 icon: const Icon(LineIcons.stream),
                 label: Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -125,24 +114,14 @@ class _WelcomePageState extends State<WelcomePage> {
   }
 
   Widget buildIllustrations(BuildContext context) {
+    //TODO: Implement the missed section for the welcome view
+    //TODO: See the right section of https://meet.google.com
     return Expanded(
       flex: 1,
       child: Container(
-        child: Column(
-          children: [
-            PageView.builder(
-                itemCount: _pages.length,
-                itemBuilder: ((context, index) => Image.network(
-                    'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'))),
-            PageView(
-              controller: _pageController,
-              physics: const NeverScrollableScrollPhysics(),
-              children: _pages,
-            ),
-            //SmoothPageIndicator(
-            //   controller: _pageController, count: _pages.length),
-          ],
-        ),
+        width: double.infinity,
+        height: double.infinity,
+        color: Colors.blue,
       ),
     );
   }
