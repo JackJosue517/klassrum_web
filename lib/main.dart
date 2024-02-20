@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:klassrum_web/ui/screen/app_screen.dart';
+import 'package:klassrum_web/ui/screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MainScreen(),
+      home: const HomeScreen(),
     );
   }
 }
