@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:klassrum_web/ui/components/cancel_cours_card.dart';
 import 'package:klassrum_web/ui/components/nearest_course.dart';
 import 'package:klassrum_web/ui/components/statistique_card.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
@@ -56,15 +57,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           decoration: BoxDecoration(
                               color: const Color.fromARGB(255, 1, 51, 4),
                               borderRadius: BorderRadius.circular(12)),
-                          child: const Column(children: [
-                            /*Row(children: [
-                          Text("Notion"),
-                          Text("Date"),
-                          Text("Prof"),
-                        Text("duree"),
-                        Text("Nonbre etidiant"),
-                        ],)*/
-                          ]),
+                          child: const CancelCourseCard(),
                         ),
                       ),
                     ],
@@ -74,3 +67,11 @@ class _DashboardPageState extends State<DashboardPage> {
         ));
   }
 }
+
+/*Row(children: [
+                          Text("Notion"),
+                          Text("Date"),
+                          Text("Prof"),
+                        Text("duree"),
+                        Text("Nonbre etidiant"),
+                        ],)*/

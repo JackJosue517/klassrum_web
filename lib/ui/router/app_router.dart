@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:klassrum_web/ui/pages/dashboard_page.dart';
 import 'package:klassrum_web/ui/pages/ressource_page.dart';
 import 'package:klassrum_web/ui/pages/cours_page.dart';
 import 'package:klassrum_web/ui/screens/call_room.dart';
@@ -12,6 +13,8 @@ class AppRouter {
     switch (routeSettings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case '/dashboard':
+        return MaterialPageRoute(builder: (_) => const DashboardPage());
       case '/login':
         return MaterialPageRoute(builder: (_) => const LoginPage());
       case '/notifications':
@@ -20,7 +23,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const CallRoomScreen());
       case '/course':
         return MaterialPageRoute(builder: (_) => const CoursPage());
-      case '/ressourse':
+      case '/ressource':
         return MaterialPageRoute(builder: (_) => const RessourcePage());
       default:
         return MaterialPageRoute(builder: (_) => const UnknownScreen());

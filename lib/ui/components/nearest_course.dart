@@ -49,7 +49,7 @@ class NearestCourse extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Jerome Bell',
+                  'Programmation distribuée',
                   style: TextStyle(
                     color: Colors.white.withOpacity(0.5),
                     fontSize: 14,
@@ -61,7 +61,7 @@ class NearestCourse extends StatelessWidget {
                 ),
                 const Gap(8),
                 const Text(
-                  'Constructive and destructive waves',
+                  'les services REST',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

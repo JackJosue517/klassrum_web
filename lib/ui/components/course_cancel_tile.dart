@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:klassrum_web/ui/styles/color.dart';
 
 void main() {
-  runApp(const CoursProgrammerTile());
+  runApp(const CancelCourseTile());
 }
 
-class CoursProgrammerTile extends StatelessWidget {
-  const CoursProgrammerTile({super.key});
+class CancelCourseTile extends StatelessWidget {
+  const CancelCourseTile({super.key});
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -29,7 +30,7 @@ class _MyTableState extends State<MyTable> {
       "Nbre Etudiants": "25",
       "Heure": "10:00 AM",
       "Etat": "En cours",
-      "Actions": "Modifier",
+      "Date": "10/16/2006"
     },
     {
       "Code": "001",
@@ -39,6 +40,7 @@ class _MyTableState extends State<MyTable> {
       "Heure": "10:00 AM",
       "Etat": "En cours",
       "Actions": "Modifier",
+      "Date": "10/06/2010"
     },
     // Ajoutez d'autres données au besoin
   ];
@@ -57,13 +59,11 @@ class _MyTableState extends State<MyTable> {
                 buildTableCell(tableData[index]["Code"]!),
                 buildTableCell(tableData[index]["Intitulé"]!),
                 buildTableCell(tableData[index]["Chapitre"]!),
-                buildTableCell(tableData[index]["Nbre Etudiants"]!),
-                buildTableCell(tableData[index]["Heure"]!),
-                buildTableCell(tableData[index]["Etat"]!),
+                buildTableCell(tableData[index]["Date"]!),
                 FilledButton(
                   style: ButtonStyle(
-                      backgroundColor:
-                          const MaterialStatePropertyAll(Colors.green),
+                      backgroundColor: const MaterialStatePropertyAll(
+                          AppColors.buttonColors),
                       shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)))),
                   onPressed: () {
@@ -79,7 +79,7 @@ class _MyTableState extends State<MyTable> {
                           );
                         });
                   },
-                  child: const Text("Voir plus"),
+                  child: const Text("Reprogrammer"),
                 ),
               ],
             ),

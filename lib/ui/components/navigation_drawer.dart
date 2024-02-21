@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:klassrum_web/ui/configs/styles.dart';
-import 'package:line_icons/line_icons.dart';
 
 class CustomNavigationDrawer extends StatelessWidget {
   const CustomNavigationDrawer({super.key});
@@ -57,14 +56,16 @@ class CustomNavigationDrawer extends StatelessWidget {
           runSpacing: 16,
           children: [
             ListTile(
-              leading: const Icon(LineIcons.home),
+              leading: const Icon(Icons.dashboard),
               title: const Text('Dashboard'),
-              onTap: () => Navigator.of(context).pushReplacementNamed('/home'),
+              onTap: () =>
+                  Navigator.of(context).pushReplacementNamed('/dashboard'),
             ),
             ListTile(
               leading: const Icon(Icons.workspaces_outline),
               title: const Text('Cours'),
-              onTap: () => Navigator.of(context).pushReplacementNamed('/course') ,
+              onTap: () =>
+                  Navigator.of(context).pushReplacementNamed('/course'),
             ),
             ListTile(
               leading: const Icon(Icons.update),
