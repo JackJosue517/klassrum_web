@@ -98,7 +98,7 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
             InkWell(
               onTap: () {
-                //TODO: Launch this url
+                
               },
               child: LinkWell(
                 'En savoir plus sur klassrum3.web.app/about',

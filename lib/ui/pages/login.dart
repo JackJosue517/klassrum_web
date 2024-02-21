@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
 
   void _checkform() {
     if (_formKey.currentState!.validate()) {
-      //TODO: if the form is valid, ...
+      /*TODO: if the form is valid, ...*/
     }
   }
 

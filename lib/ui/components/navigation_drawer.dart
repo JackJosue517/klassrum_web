@@ -20,39 +20,33 @@ class CustomNavigationDrawer extends StatelessWidget {
 
   Widget buildHeader(BuildContext context) => Material(
         color: AppColors.primaryColor,
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context).pop();
-            Navigator.of(context).pushNamed('/settings');
-          },
-          child: Container(
-            padding: EdgeInsets.only(
-              top: 24 + MediaQuery.of(context).padding.top,
-              bottom: 24,
-            ),
-            child: Column(
-              children: [
-                const CircleAvatar(
-                  radius: 52,
-                  backgroundImage: NetworkImage(
-                      'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+        child: Container(
+          padding: EdgeInsets.only(
+            top: 24 + MediaQuery.of(context).padding.top,
+            bottom: 24,
+          ),
+          child: Column(
+            children: [
+              const CircleAvatar(
+                radius: 52,
+                backgroundImage: NetworkImage(
+                    'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              Text(
+                'M. HOETOWOU Yaovi',
+                style: AppText.headline3.copyWith(
+                  color: AppColors.trueWhiteColor,
                 ),
-                const SizedBox(
-                  height: 12,
-                ),
-                Text(
-                  'M. HOETOWOU Yaovi',
-                  style: AppText.headline3.copyWith(
-                    color: AppColors.trueWhiteColor,
-                  ),
-                ),
-                Text(
-                  'gravatar@yahoo.fr',
-                  style: AppText.headline5
-                      .copyWith(color: AppColors.trueWhiteColor),
-                ),
-              ],
-            ),
+              ),
+              Text(
+                'gravatar@yahoo.fr',
+                style:
+                    AppText.headline5.copyWith(color: AppColors.trueWhiteColor),
+              ),
+            ],
           ),
         ),
       );
@@ -64,31 +58,25 @@ class CustomNavigationDrawer extends StatelessWidget {
           children: [
             ListTile(
               leading: const Icon(LineIcons.home),
-              title: const Text('Accueil'),
+              title: const Text('Dashboard'),
               onTap: () => Navigator.of(context).pushReplacementNamed('/home'),
             ),
             ListTile(
               leading: const Icon(Icons.workspaces_outline),
-              title: const Text('Workflow'),
-              onTap: () {},
+              title: const Text('Cours'),
+              onTap: () => Navigator.of(context).pushReplacementNamed('/course') ,
             ),
             ListTile(
               leading: const Icon(Icons.update),
-              title: const Text('Mises à jour'),
-              onTap: () {},
+              title: const Text('Ressources'),
+              onTap: () => Navigator.of(context).pushNamed("/ressource"),
             ),
             const Divider(color: Colors.black54),
             ListTile(
-              leading: const Icon(Icons.account_tree_outlined),
-              title: const Text('Plugins'),
-              onTap: () {},
-            ),
-            ListTile(
-                leading: const Icon(Icons.notifications_outlined),
-                title: const Text('Notifications'),
+                leading: const Icon(Icons.logout),
+                title: const Text('Deconnexion'),
                 onTap: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).pushNamed('/notifications');
+                  //action de deconnexion
                 }),
           ],
         ),

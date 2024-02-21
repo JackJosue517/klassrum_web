@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:klassrum_web/ui/pages/dashboard.dart';
+import 'package:klassrum_web/ui/pages/dashboard_page.dart';
 import 'package:klassrum_web/ui/pages/welcome.dart';
 
 class HomeScreen extends StatefulWidget {
