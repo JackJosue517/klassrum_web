@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:klassrum_web/ui/pages/view_more.dart';
-import 'package:klassrum_web/ui/styles/color.dart';
 
 void main() {
-  runApp(const CancelCourseCard());
+  runApp(const AfterCourseCard());
 }
 
-class CancelCourseCard extends StatelessWidget {
-  const CancelCourseCard({super.key});
+class AfterCourseCard extends StatelessWidget {
+  const AfterCourseCard({super.key});
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -61,26 +59,6 @@ class _MyTableState extends State<MyTable> {
                 buildTableCell(tableData[index]["Intitulé"]!),
                 buildTableCell(tableData[index]["Chapitre"]!),
                 buildTableCell(tableData[index]["Date"]!),
-                FilledButton(
-                  style: ButtonStyle(
-                    backgroundColor: const MaterialStatePropertyAll(
-                        AppColors.cancelButtonColor),
-                    shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    )),
-                  ),
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return const Dialog(
-                          child: ViewMorePage(),
-                        );
-                      },
-                    );
-                  },
-                  child: const Text("reprogrammer"),
-                ),
               ],
             ),
           ),

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:klassrum_web/ui/pages/view_more.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
 
 void main() {
-  runApp(const CancelCourseTile());
+  runApp(const FutureCourseCard());
 }
 
-class CancelCourseTile extends StatelessWidget {
-  const CancelCourseTile({super.key});
+class FutureCourseCard extends StatelessWidget {
+  const FutureCourseCard({super.key});
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -18,7 +19,7 @@ class CancelCourseTile extends StatelessWidget {
 class MyTable extends StatefulWidget {
   const MyTable({super.key});
   @override
-  _MyTableState createState() => _MyTableState();
+  State<MyTable> createState() => _MyTableState();
 }
 
 class _MyTableState extends State<MyTable> {
@@ -62,24 +63,23 @@ class _MyTableState extends State<MyTable> {
                 buildTableCell(tableData[index]["Date"]!),
                 FilledButton(
                   style: ButtonStyle(
-                      backgroundColor: const MaterialStatePropertyAll(
-                          AppColors.buttonColors),
-                      shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)))),
+                    backgroundColor: const MaterialStatePropertyAll(
+                        AppColors.editbuttonColor),
+                    shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    )),
+                  ),
                   onPressed: () {
                     showDialog(
-                        context: context,
-                        builder: (context) {
-                          return Dialog(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(16)),
-                            ),
-                          );
-                        });
+                      context: context,
+                      builder: (context) {
+                        return const Dialog(
+                          child: ViewMorePage(),
+                        );
+                      },
+                    );
                   },
-                  child: const Text("Reprogrammer"),
+                  child: const Text("voir plus"),
                 ),
               ],
             ),
@@ -90,14 +90,12 @@ class _MyTableState extends State<MyTable> {
   }
 
   Widget buildTableCell(String text) {
-    return TableCell(
-      child: Container(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-          text,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(
+        text,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
         ),
       ),
     );

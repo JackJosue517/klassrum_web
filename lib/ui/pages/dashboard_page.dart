@@ -55,7 +55,6 @@ class _DashboardPageState extends State<DashboardPage> {
                       Expanded(
                         child: Container(
                           decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 1, 51, 4),
                               borderRadius: BorderRadius.circular(12)),
                           child: const CancelCourseCard(),
                         ),

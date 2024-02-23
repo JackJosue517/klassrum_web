@@ -28,18 +28,27 @@ class StatistiqueCard extends StatelessWidget {
           color: AppColors.statistiqueCardTextColor,
         ),
         const Gap(16),
-        Column(
-          children: [
-            Text(
-              "$valeur",
-              style: const TextStyle(
-                  color: AppColors.statistiqueCardTextColor, fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const Gap(16),
-            Text(titre, style: const TextStyle(
-                  color: AppColors.statistiqueCardTextColor, fontSize: 24, fontWeight: FontWeight.bold),
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Column(
+            children: [
+              Text(
+                "$valeur",
+                style: const TextStyle(
+                    color: AppColors.statistiqueCardTextColor,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              ),
+              const Gap(16),
+              Text(
+                titre,
+                style: const TextStyle(
+                    color: AppColors.statistiqueCardTextColor,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              )
+            ],
+          ),
         )
       ]),
     );
