@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:klassrum_web/data/models/app_shedule_course.dart';
 
 class ReprogramPage extends StatefulWidget {
-  const ReprogramPage({super.key});
-
+  const ReprogramPage({super.key, required this.sheduledCourse});
+  final ShedulerCourse sheduledCourse;
   @override
   State<ReprogramPage> createState() => _ReprogramPageState();
 }

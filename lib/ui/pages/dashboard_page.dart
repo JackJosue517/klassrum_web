@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:klassrum_web/ui/components/cancel_cours_card.dart';
+import 'package:klassrum_web/ui/components/Cancel_course.dart';
+import 'package:klassrum_web/ui/components/cours_programmer_tile.dart';
 import 'package:klassrum_web/ui/components/nearest_course.dart';
 import 'package:klassrum_web/ui/components/statistique_card.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
 import 'package:klassrum_web/ui/components/navigation_drawer.dart';
+import 'package:klassrum_web/util/utils.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -49,6 +51,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 const Gap(20),
                 Expanded(
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const NearestCourse(),
                       const Gap(32),
@@ -56,7 +59,8 @@ class _DashboardPageState extends State<DashboardPage> {
                         child: Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12)),
-                          child: const CancelCourseCard(),
+                          child:
+                              CancelCourse(sheduledCourses: getData("Annulé")),
                         ),
                       ),
                     ],
@@ -66,11 +70,3 @@ class _DashboardPageState extends State<DashboardPage> {
         ));
   }
 }
-
-/*Row(children: [
-                          Text("Notion"),
-                          Text("Date"),
-                          Text("Prof"),
-                        Text("duree"),
-                        Text("Nonbre etidiant"),
-                        ],)*/

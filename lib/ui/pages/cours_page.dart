@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:klassrum_web/ui/components/after_course.dart';
-import 'package:klassrum_web/ui/components/cancel_cours_card.dart';
 import 'package:klassrum_web/ui/components/cours_programmer_tile.dart';
-import 'package:klassrum_web/ui/components/future_course.dart';
 import 'package:klassrum_web/ui/components/navigation_drawer.dart';
-import 'package:klassrum_web/ui/pages/course_programmer_formula.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
+import 'package:klassrum_web/util/utils.dart';
 
 class CoursPage extends StatefulWidget {
   const CoursPage({super.key});
@@ -31,9 +28,6 @@ class _CoursPageState extends State<CoursPage> {
                 setState(() {
                   selectedSortOption = newValue!;
                 });
-
-                // Handle the selected sort option here
-                handleSortOption(newValue);
               },
               items: <String>['Tout', 'Passé', 'A venir', 'Annulé']
                   .map<DropdownMenuItem<String>>((String value) {
@@ -80,7 +74,8 @@ class _CoursPageState extends State<CoursPage> {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 0),
-                child: _getCourseTypeContent(selectedSortOption),
+                child:
+                    CoursProgram(sheduledCourses: getData(selectedSortOption)),
                 //Column(children: List.generate(3, (index) => const MyApp())),
               ),
             )
@@ -90,30 +85,5 @@ class _CoursPageState extends State<CoursPage> {
     );
   }
 
-  //la fonction qui va tout faire selon le l'option qui est selectionnée
-  void handleSortOption(String? selectedOption) {
-    // Implement your logic based on the selected sort option
-    print('Selected Sort Option: $selectedOption');
-    // You can perform different actions based on the selected option.
-    // For example, you may want to sort the data differently.
-  }
-
-  Widget _getCourseTypeContent(String selectedOption) {
-    Widget widget = const CoursProgram();
-    if (selectedSortOption == "Passé") {}
-    switch (selectedOption) {
-      case "Passé":
-        widget = const AfterCourseCard();
-        break;
-      case "A venir":
-        widget = const FutureCourseCard();
-        break;
-      case "Annulé":
-        widget = const CancelCourseCard();
-        break;
-      default:
-        widget = const CoursProgram();
-    }
-    return widget;
-  }
+  
 }

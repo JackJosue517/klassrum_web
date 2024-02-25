@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:klassrum_web/data/models/app_shedule_course.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
 
 class ViewMorePage extends StatefulWidget {
-  const ViewMorePage({super.key});
-
+  const ViewMorePage({super.key, required this.sheduledCourse});
+  final ShedulerCourse sheduledCourse;
   @override
   State<ViewMorePage> createState() => _ViewMorePageState();
 }
@@ -47,10 +48,10 @@ class _ViewMorePageState extends State<ViewMorePage> {
                   ),
                   const Divider(),
                   const Gap(24),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         "Les services REST",
                         style: TextStyle(
                           fontSize: 16,
@@ -62,31 +63,31 @@ class _ViewMorePageState extends State<ViewMorePage> {
                       Row(
                         children: [
                           CircleAvatar(
-                            backgroundImage: const AssetImage(
-                              "assets/img/default_profile.jpg",
+                            backgroundImage:  AssetImage(
+                              "assets/img/default_profil.jpg",
                             ),
                           ),
-                          const Gap(4),
-                          const Text("Nom du prof"),
+                           Gap(4),
+                           Text("Nom du prof"),
                         ],
                       ),
                     ],
                   ),
                   const Gap(24),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Column(
                         children: [
                           Text("Heure de début"),
-                          const Gap(4),
+                           Gap(4),
                           Text("1H30min"),
                         ],
                       ),
                       Column(
                         children: [
                           Text("Heure de fin"),
-                          const Gap(4),
+                           Gap(4),
                           Text("6H30min"),
                         ],
                       ),
@@ -113,12 +114,12 @@ class _ViewMorePageState extends State<ViewMorePage> {
           ),
           Container(
             width: 150,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
+            decoration: const BoxDecoration(
+              borderRadius:  BorderRadius.only(
                 topRight: Radius.circular(12),
                 bottomRight: Radius.circular(12),
               ),
-              image: const DecorationImage(
+              image:  DecorationImage(
                 image: AssetImage("assets/img/course_banner.jpg"),
                 fit: BoxFit.cover,
               ),
