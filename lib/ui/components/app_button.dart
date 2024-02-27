@@ -1,41 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:klassrum_web/ui/styles/color.dart';
 
 class AppButton extends StatelessWidget {
   final String text;
-  final IconData icon;
+  final Color couleur;
   final VoidCallback onTapActions;
-  final bool isSelected;
-  const AppButton(
-      {super.key,
-      required this.icon,
-      required this.text,
-      required this.onTapActions,
-      required this.isSelected});
+  const AppButton({
+    super.key,
+    required this.text,
+    required this.couleur,
+    required this.onTapActions,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTapActions,
-      child: Container(
-        padding: const EdgeInsets.all(4),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          color: isSelected ? AppColors.buttonColors : Colors.transparent,
-        ),
-        child: Row(
-          children: [
-            Icon(
-              icon,
-              color: AppColors.buttonTextColors,
-            ),
-            const Gap(8),
-            Text(
-              text,
-              style: const TextStyle(color: AppColors.buttonTextColors),
-            )
-          ],
+    return Center(
+      child: SizedBox(
+        width: 150,
+        child: FilledButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStatePropertyAll(couleur),
+            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            )),
+          ),
+          onPressed: () {
+            /*showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Dialog(
+                      child: getRespectiveDialogPage(statut, sheduledCourse),
+                    );
+                  },
+                );*/
+            onTapActions();
+          },
+          child: Text(text),
         ),
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:klassrum_web/data/models/app_shedule_course.dart';
 import 'package:klassrum_web/ui/pages/reprogram_page.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
+import 'package:klassrum_web/util/utils.dart';
 
 class CancelCourse extends StatefulWidget {
   const CancelCourse({super.key, required this.sheduledCourses});
@@ -16,13 +17,13 @@ class _MyTableState extends State<CancelCourse> {
     return SizedBox(
       width: double.infinity,
       child: DataTable(
-        columns: const [
-          DataColumn(label: Text("Code")),
-          DataColumn(label: Text("Intitulé")),
-          DataColumn(label: Text("Chapitre")),
-          DataColumn(label: Text("Enseignant")),
-          DataColumn(label: Text("Date")),
-          DataColumn(label: Text("Action")),
+        columns: [
+          DataColumn(label: tableHeader("Code")),
+          DataColumn(label: tableHeader("Intitulé")),
+          DataColumn(label: tableHeader("Chapitre")),
+          DataColumn(label: tableHeader("Enseignant")),
+          DataColumn(label: tableHeader("Date")),
+          DataColumn(label: tableHeader("Action")),
         ],
         rows: widget.sheduledCourses
             .map((sheduledCourse) => DataRow(cells: [
@@ -36,8 +37,8 @@ class _MyTableState extends State<CancelCourse> {
                       width: 150,
                       child: FilledButton(
                         style: ButtonStyle(
-                          backgroundColor:
-                             const MaterialStatePropertyAll(AppColors.cancelButtonColor),
+                          backgroundColor: const MaterialStatePropertyAll(
+                              AppColors.cancelButtonColor),
                           shape:
                               MaterialStatePropertyAll(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -48,7 +49,8 @@ class _MyTableState extends State<CancelCourse> {
                             context: context,
                             builder: (context) {
                               return Dialog(
-                                child: ReprogramPage(sheduledCourse: sheduledCourse),
+                                child: ReprogramPage(
+                                    sheduledCourse: sheduledCourse),
                               );
                             },
                           );

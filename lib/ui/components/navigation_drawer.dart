@@ -56,13 +56,13 @@ class CustomNavigationDrawer extends StatelessWidget {
           runSpacing: 16,
           children: [
             ListTile(
-              leading: const Icon(Icons.dashboard),
+              leading: const Icon(Icons.dashboard_outlined),
               title: const Text('Dashboard'),
               onTap: () =>
                   Navigator.of(context).pushReplacementNamed('/dashboard'),
             ),
             ListTile(
-              leading: const Icon(Icons.workspaces_outline),
+              leading: const Icon(Icons.book_online_outlined),
               title: const Text('Cours'),
               onTap: () =>
                   Navigator.of(context).pushReplacementNamed('/course'),

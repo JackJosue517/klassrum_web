@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:klassrum_web/ui/components/Cancel_course.dart';
-import 'package:klassrum_web/ui/components/cours_programmer_tile.dart';
 import 'package:klassrum_web/ui/components/nearest_course.dart';
 import 'package:klassrum_web/ui/components/statistique_card.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
@@ -57,7 +56,9 @@ class _DashboardPageState extends State<DashboardPage> {
                       const Gap(32),
                       Expanded(
                         child: Container(
+                          height: double.infinity,
                           decoration: BoxDecoration(
+                              color: AppColors.cancelCourseSpaceColor,
                               borderRadius: BorderRadius.circular(12)),
                           child:
                               CancelCourse(sheduledCourses: getData("Annulé")),

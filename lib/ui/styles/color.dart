@@ -22,4 +22,7 @@ class AppColors {
   static const Color duringColor = Color.fromARGB(255, 218, 167, 227);
   static const Color cancelColor = Color.fromARGB(255, 156, 189, 227);
   static const Color passColor = Color.fromARGB(255, 235, 173, 173);
+  static const Color cancelCourseSpaceColor =
+      Color.fromARGB(255, 216, 223, 231);
+  static const Color deleteButtonColor = Color.fromARGB(255, 255, 0, 0);
 }
