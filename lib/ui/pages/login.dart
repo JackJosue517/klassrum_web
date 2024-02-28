@@ -13,18 +13,14 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
+  final _usernameTextController = TextEditingController();
+  final _passwordTextController = TextEditingController();
 
   String? _isValid(value) {
     if (value == null || value.isEmpty) {
       return 'Veuillez entrer la valeur requise';
     }
     return null;
-  }
-
-  void _checkform() {
-    if (_formKey.currentState!.validate()) {
-      /*TODO: if the form is valid, ...*/
-    }
   }
 
   @override
@@ -56,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                       TextFormField(
                         validator: _isValid,
                         autofocus: true,
+                        controller: _usernameTextController,
                         decoration: const InputDecoration(
                           prefixIcon: Icon(LineIcons.userAlt),
                           hintText: "Entrer votre nom d'utilisateur",
@@ -83,6 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const SizedBox(height: 40),
                       TextFormField(
+                        controller: _passwordTextController,
                         validator: _isValid,
                         decoration: const InputDecoration(
                             prefixIcon: Icon(LineIcons.key),
@@ -123,7 +121,13 @@ class _LoginPageState extends State<LoginPage> {
                             foregroundColor: AppColors.trueWhiteColor,
                             elevation: 0,
                           ),
-                          onPressed: _checkform,
+                          onPressed: ()  {
+                            if (_formKey.currentState!.validate()) {
+                              final username = _usernameTextController.text;
+                              final password = _passwordTextController.text;
+                              context.read<AuthBloc>().add(AuthLoginRequested(username: username, password: password));
+                            }
+                          },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child:
@@ -136,5 +140,12 @@ class _LoginPageState extends State<LoginPage> {
             ));
           },
         ));
+  }
+
+  @override
+  void dispose() {
+    _usernameTextController.dispose();
+    _passwordTextController.dispose();
+    super.dispose();
   }
 }

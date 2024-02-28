@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final uid = context.select<AuthSuccess, String>((AuthSuccess state) => state.userModel.uid);
-    return uid.isNotEmpty ? const DashboardPage() : const WelcomePage();
+    final user = (context.watch<AuthBloc>().state as AuthSuccess).userModel;
+    return user.uid.isNotEmpty ? const DashboardPage() : const WelcomePage();
   }
 }
