@@ -3,7 +3,7 @@ import 'package:klassrum_web/data/models/app_shedule_course.dart';
 import 'package:klassrum_web/ui/pages/reprogram_page.dart';
 import 'package:klassrum_web/ui/pages/view_more.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
-import 'package:klassrum_web/util/utils.dart';
+import 'package:klassrum_web/util/table_model.dart';
 
 class CoursProgram extends StatefulWidget {
   const CoursProgram({super.key, required this.sheduledCourses});
@@ -12,99 +12,124 @@ class CoursProgram extends StatefulWidget {
   State<CoursProgram> createState() => _MyTableState();
 }
 
+final columns = [
+  "Code",
+  "Intitule",
+  "Chapitre",
+  "Enseignant",
+  "Date",
+  "Status",
+  "Action"
+];
+
 class _MyTableState extends State<CoursProgram> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      child: DataTable(
-        columns: [
-          DataColumn(label: tableHeader("Code")),
-          DataColumn(label: tableHeader("Intitulé")),
-          DataColumn(label: tableHeader("Chapitre")),
-          DataColumn(label: tableHeader("Enseignant")),
-          DataColumn(label: tableHeader("Date")),
-          DataColumn(label: tableHeader("Statut")),
-          DataColumn(label: tableHeader("Action")),
-        ],
-        rows: widget.sheduledCourses
-            .map((sheduledCourse) => DataRow(cells: [
-                  DataCell(Text(sheduledCourse.code)),
-                  DataCell(Text(sheduledCourse.intitule)),
-                  DataCell(Text(sheduledCourse.chapitre)),
-                  DataCell(Text(sheduledCourse.enseignant)),
-                  DataCell(Text(sheduledCourse.date)),
-                  DataCell(Text(sheduledCourse.status)),
-                  DataCell((sheduledCourse.status) != "before"
-                      ? getActionButton(sheduledCourse.status, sheduledCourse)
-                      : const Center(
-                          child: Icon(
-                            Icons.cancel,
-                            color: Colors.red,
-                          ),
-                        ))
-                ]))
-            .toList(),
-      ),
-    );
+        width: double.infinity,
+        child: Table(
+            // border: TableBorder.all(color: Colors.grey),
+            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+            children: [
+              TableRow(
+                  children:
+                      columns.map((e) => TableHeaderTile(text: e)).toList()),
+              ...widget.sheduledCourses.map(
+                (e) => TableRow(
+                  children: [
+                    TableTile(text: e.code),
+                    TableTile(text: e.intitule),
+                    TableTile(text: e.chapitre),
+                    TableTile(text: e.enseignant),
+                    TableTile(text: e.date),
+                    statutForm(e.status),
+                    actionText(e.status, e)
+                  ],
+                ),
+              )
+            ]));
   }
 
-  Color _getButtonColor(String statut) {
-    // Add your condition here to determine the color based on the state
-    if (statut == "after") {
-      return AppColors.editbuttonColor;
-    } else if (statut == "during") {
-      return AppColors.duringButtonColor; // Change this to your desired color
-    } else if (statut == "cancel") {
-      return AppColors.cancelButtonColor; // Change this to your desired color
-    } else {
-      return Colors.black; // Change this to your default color
+  Widget statutForm(String statut) {
+    Color couleur;
+    switch (statut) {
+      case "A venir": // Upcoming
+        couleur = Colors.teal; // Adjusted for better accessibility
+      case "En cours": // In progress
+        couleur = Colors.orange;
+      case "Annulé": // Canceled
+        couleur = Colors.red;
+      case "Passé": // Past
+        couleur = Colors.grey; // Adjusted for better accessibility
+      default:
+        couleur = Colors.black; // Default color
     }
-  }
-
-  String _getText(String statut) {
-    // Add your condition here to determine the color based on the state
-    if (statut == "after") {
-      return "Voir plus";
-    } else if (statut == "during") {
-      return "Voir plus"; // Change this to your desired color
-    } else if (statut == "cancel") {
-      return "Reprogrammer"; // Change this to your desired color
+    /*if (statut == "A venir") {
+      couleur = AppColors.editbuttonColor;
+    } else if (statut == "En cours") {
+      couleur =
+          AppColors.duringButtonColor; // Change this to your desired color
+    } else if (statut == "Annulé") {
+      couleur = AppColors.passButtonColor;
+       // Change this to your desired color
+    } else if (statut == "Passé") {
+      couleur =
+          AppColors.cancelButtonColor; // Change this to your desired color
     } else {
-      return "T'es sur ?"; // Change this to your default color
-    }
-  }
-
-  Widget getActionButton(String statut, ShedulerCourse sheduledCourse) {
-    return Center(
-      child: SizedBox(
-        width: 150,
-        child: FilledButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStatePropertyAll(_getButtonColor(statut)),
-            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            )),
+      couleur = Colors.black; // Change this to your default color
+    }*/
+    return Padding(
+      padding: const EdgeInsets.all(2),
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: const BoxDecoration(color: Color(0xFFEDEDED)),
+        child: Text(
+          textAlign: TextAlign.center,
+          statut,
+          style: TextStyle(
+            color: couleur,
+            fontWeight: FontWeight.bold,
           ),
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return Dialog(
-                  child: getRespectiveDialogPage(statut, sheduledCourse),
-                );
-              },
-            );
-          },
-          child: Text(_getText(statut)),
         ),
       ),
     );
   }
 
+  Widget actionText(String statut, ShedulerCourse sheduledCourse) {
+    String text = "Voir plus";
+    if (statut == "Annulé") {
+      text = "Reprogrammer";
+    }
+    return Padding(
+      padding: const EdgeInsets.all(2),
+      child: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: const BoxDecoration(color: AppColors.buttonColors),
+          child: InkWell(
+            child: Text(
+              textAlign: TextAlign.center,
+              text,
+              style: const TextStyle(
+                color: AppColors.buttonTextColors,
+              ),
+            ),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return Dialog(
+                    child: getRespectiveDialogPage(statut, sheduledCourse),
+                  );
+                },
+              );
+            },
+          )),
+    );
+  }
+
   Widget getRespectiveDialogPage(String statut, ShedulerCourse sheduledCourse) {
     switch (statut) {
-      case "cancel":
+      case "Annulé":
         return ReprogramPage(sheduledCourse: sheduledCourse);
       default:
         return ViewMorePage(sheduledCourse: sheduledCourse);

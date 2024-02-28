@@ -22,8 +22,7 @@ class _ViewMorePageState extends State<ViewMorePage> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Confirmation'),
-          content:
-              const Text('Êtes-vous sûr de vouloir annuler cette séance?'),
+          content: const Text('Êtes-vous sûr de vouloir annuler cette séance?'),
           actions: <Widget>[
             TextButton(
               onPressed: () {
@@ -87,11 +86,13 @@ class _ViewMorePageState extends State<ViewMorePage> {
                   ),
                   const Divider(),
                   const Gap(24),
-                  const Expanded(
-                      child: Column(children: [
-                    Row(
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Column(
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               "Les services REST",
@@ -106,18 +107,52 @@ class _ViewMorePageState extends State<ViewMorePage> {
                               children: [
                                 CircleAvatar(
                                   backgroundImage: AssetImage(
-                                    "assets/img/default_profil.jpg",
-                                  ),
+                                      "assets/img/default_profil.jpg"),
                                 ),
-                                Gap(4),
+                                SizedBox(width: 4),
                                 Text("Nom du prof"),
                               ],
                             ),
                           ],
                         ),
+                        const SizedBox(height: 24),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              children: [
+                                Text("Heure de début"),
+                                SizedBox(height: 4),
+                                Text("1H30min"),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text("Heure de fin"),
+                                SizedBox(height: 4),
+                                Text("6H30min"),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 24),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: AppColors.buttonColors),
+                                color: Colors.transparent,
+                              ),
+                              child: const Text("Dans 1h"),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
-                  ])),
+                  ),
                   const Gap(12),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,

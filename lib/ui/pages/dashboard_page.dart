@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:klassrum_web/ui/components/Cancel_course.dart';
+import 'package:klassrum_web/ui/components/cancel_course.dart';
 import 'package:klassrum_web/ui/components/nearest_course.dart';
 import 'package:klassrum_web/ui/components/statistique_card.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
@@ -38,13 +38,13 @@ class _DashboardPageState extends State<DashboardPage> {
                     StatistiqueCard(
                         couleur: AppColors.statistiqueAlreadyCardColor,
                         icon: "assets/img/online-learning.png",
-                        titre: "Cours programmés",
-                        valeur: 5),
+                        titre: "Cours faits",
+                        valeur: 4),
                     StatistiqueCard(
                         couleur: AppColors.statistiqueCancelCardColor,
                         icon: "assets/img/online-learning.png",
                         titre: "Cours annulés",
-                        valeur: 5),
+                        valeur: 1),
                   ],
                 ),
                 const Gap(20),

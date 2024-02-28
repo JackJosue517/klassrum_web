@@ -9,17 +9,17 @@ List<ShedulerCourse> getData(String selectOption) {
   switch (selectOption) {
     case "A venir":
       return shedulerCourses
-          .where((element) => element.status == "after")
+          .where((element) => element.status == "A venir")
           .toList();
 
     case "Passé":
       return shedulerCourses
-          .where((element) => element.status == "before")
+          .where((element) => element.status == "Passé")
           .toList();
 
     case "Annulé":
       return shedulerCourses
-          .where((element) => element.status == "cancel")
+          .where((element) => element.status == "Annulé")
           .toList();
     default:
       return shedulerCourses;
@@ -37,11 +37,10 @@ Widget tableHeader(String header) {
       child: Text(
         header,
         style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-          //color: AppColors.statistiqueCardTextColor
-        ),
-        textAlign: TextAlign.center,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: AppColors.statistiqueCardTextColor),
+        //textAlign: TextAlign.center,
       ),
     ),
   );

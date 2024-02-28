@@ -114,8 +114,8 @@ class _WelcomePageState extends State<WelcomePage> {
   }
 
   Widget buildIllustrations(BuildContext context) {
-    //TODO: Implement the missed section for the welcome view
-    //TODO: See the right section of https://meet.google.com
+    //Implement the missed section for the welcome view
+    //See the right section of https://meet.google.com
     return Expanded(
       flex: 1,
       child: Container(

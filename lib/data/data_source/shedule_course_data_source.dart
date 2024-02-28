@@ -8,7 +8,7 @@ final tableData = [
     "nombreEtudiants": 20,
     "heureDebut": "2:00 PM",
     "heureFin": "2:00 PM",
-    "status": "during",
+    "status": "En cours",
     "enseignant": "Mr Doc",
     "date": "10/20/2022"
   },
@@ -21,7 +21,7 @@ final tableData = [
     "nombreEtudiants": 20,
     "heureDebut": "2:00 PM",
     "heureFin": "2:00 PM",
-    "status": "cancel",
+    "status": "Annulé",
     "enseignant": "Mr Doc",
     "date": "10/20/2022"
   },
@@ -35,7 +35,7 @@ final tableData = [
     "nombreEtudiants": 20,
     "heureDebut": "2:00 PM",
     "heureFin": "2:00 PM",
-    "status": "after",
+    "status": "A venir",
     "enseignant": "Mr Doc",
     "date": "10/20/2022"
   },
@@ -48,7 +48,7 @@ final tableData = [
     "nombreEtudiants": 20,
     "heureDebut": "2:00 PM",
     "heureFin": "2:00 PM",
-    "status": "before",
+    "status": "Annulé",
     "enseignant": "Mr Doc",
     "date": "10/20/2022"
   },
@@ -61,7 +61,7 @@ final tableData = [
     "nombreEtudiants": 20,
     "heureDebut": "2:00 PM",
     "heureFin": "2:00 PM",
-    "status": "cancel",
+    "status": "Passé",
     "enseignant": "Mr Doc",
     "date": "10/20/2022"
   },
