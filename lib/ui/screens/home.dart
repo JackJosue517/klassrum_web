@@ -12,10 +12,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
-    final uid = context.select<AuthSuccess, String>((AuthSuccess state) => state.userModel.uid);
-    return uid.isNotEmpty ? const DashboardPage() : const WelcomePage();
+    /*final uid = context.select<AuthSuccess, String>((AuthSuccess state) => state.userModel.uid);
+    return uid.isNotEmpty ? const DashboardPage() : const WelcomePage();*/
+    return const DashboardPage();
   }
 }

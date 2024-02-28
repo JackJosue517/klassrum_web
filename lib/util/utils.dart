@@ -14,7 +14,7 @@ List<ShedulerCourse> getData(String selectOption) {
 
     case "Passé":
       return shedulerCourses
-          .where((element) => element.status == "Passé")
+          .where((element) => element.status == "Terminé")
           .toList();
 
     case "Annulé":

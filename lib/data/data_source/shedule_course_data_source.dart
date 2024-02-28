@@ -61,7 +61,7 @@ final tableData = [
     "nombreEtudiants": 20,
     "heureDebut": "2:00 PM",
     "heureFin": "2:00 PM",
-    "status": "Passé",
+    "status": "Terminé",
     "enseignant": "Mr Doc",
     "date": "10/20/2022"
   },

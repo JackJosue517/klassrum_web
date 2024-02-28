@@ -68,6 +68,15 @@ class _ViewMorePageState extends State<ViewMorePage> {
       ),
       child: Row(
         children: [
+          Container(
+            width: 200,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/img/course_banner.jpg"),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           Expanded(
             child: Container(
               padding: const EdgeInsets.only(
@@ -172,87 +181,8 @@ class _ViewMorePageState extends State<ViewMorePage> {
               ),
             ),
           ),
-          Container(
-            width: 150,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(12),
-                bottomRight: Radius.circular(12),
-              ),
-              image: DecorationImage(
-                image: AssetImage("assets/img/course_banner.jpg"),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
         ],
       ),
     );
   }
 }
-
-
-/**
- * const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Les services REST",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blueGrey,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                backgroundImage: AssetImage(
-                                  "assets/img/default_profil.jpg",
-                                ),
-                              ),
-                              Gap(4),
-                              Text("Nom du prof"),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const Gap(24),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Column(
-                            children: [
-                              Text("Heure de début"),
-                              Gap(4),
-                              Text("1H30min"),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Text("Heure de fin"),
-                              Gap(4),
-                              Text("6H30min"),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const Gap(24),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: AppColors.buttonColors),
-                              color: Colors.transparent,
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Text("Dans 1h"),
-                          ),
-                        ],
-                      ),
-                    ],
-                  )),
- */

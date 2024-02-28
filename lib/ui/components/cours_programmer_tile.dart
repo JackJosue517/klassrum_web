@@ -59,25 +59,11 @@ class _MyTableState extends State<CoursProgram> {
         couleur = Colors.orange;
       case "Annulé": // Canceled
         couleur = Colors.red;
-      case "Passé": // Past
+      case "Terminé": // Past
         couleur = Colors.grey; // Adjusted for better accessibility
       default:
         couleur = Colors.black; // Default color
     }
-    /*if (statut == "A venir") {
-      couleur = AppColors.editbuttonColor;
-    } else if (statut == "En cours") {
-      couleur =
-          AppColors.duringButtonColor; // Change this to your desired color
-    } else if (statut == "Annulé") {
-      couleur = AppColors.passButtonColor;
-       // Change this to your desired color
-    } else if (statut == "Passé") {
-      couleur =
-          AppColors.cancelButtonColor; // Change this to your desired color
-    } else {
-      couleur = Colors.black; // Change this to your default color
-    }*/
     return Padding(
       padding: const EdgeInsets.all(2),
       child: Container(
