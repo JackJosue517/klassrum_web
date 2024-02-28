@@ -23,15 +23,14 @@ class _LoginPageState extends State<LoginPage> {
     return null;
   }
 
-<<<<<<< HEAD
+
   void _checkform() {
     if (_formKey.currentState!.validate()) {
       //if the form is valid, ...
     }
   }
 
-=======
->>>>>>> 6980c21b43514eaecbcdd836e7a0b9fab8638886
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
