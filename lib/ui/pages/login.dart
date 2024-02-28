@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klassrum_web/logic/blocs/auth/auth_bloc.dart';
 import 'package:klassrum_web/ui/configs/styles.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -32,88 +34,107 @@ class _LoginPageState extends State<LoginPage> {
           title: const Text('Connectez-vous à votre compte Klassrum'),
           centerTitle: true,
         ),
-        body: Center(
-            child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 12),
-          child: Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  TextFormField(
-                    validator: _isValid,
-                    autofocus: true,
-                    decoration: const InputDecoration(
-                      prefixIcon: Icon(LineIcons.userAlt),
-                      hintText: "Entrer votre nom d'utilisateur",
-                      labelText: "Nom d'utilisateur",
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.green),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black45),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.red,
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 40),
-                  TextFormField(
-                    validator: _isValid,
-                    decoration: const InputDecoration(
-                        prefixIcon: Icon(LineIcons.key),
-                        suffixIcon: Icon(LineIcons.eyeSlashAlt),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.green),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black45),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.red,
-                            width: 2,
+        body: BlocConsumer<AuthBloc, AuthState>(
+          listener: (context, state) {
+            if(state is AuthFailure) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.error,),),);
+            }
+          },
+          builder: (context, state) {
+            if(state is AuthLoading){
+              return const Center(child: CircularProgressIndicator(),);
+            }
+
+            return Center(
+                child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 12),
+              child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        validator: _isValid,
+                        autofocus: true,
+                        decoration: const InputDecoration(
+                          prefixIcon: Icon(LineIcons.userAlt),
+                          hintText: "Entrer votre nom d'utilisateur",
+                          labelText: "Nom d'utilisateur",
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.green),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
                           ),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black45),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.red,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
                         ),
-                        hintText: "Entrer votre mot de passe",
-                        labelText: "Mot de passe"),
-                  ),
-                  const SizedBox(height: 40),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 80.0),
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        shape: const RoundedRectangleBorder(),
-                        backgroundColor: AppColors.primaryColor,
-                        foregroundColor: AppColors.trueWhiteColor,
-                        elevation: 0,
                       ),
-                      onPressed: _checkform,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text('Se connecter', style: AppText.headline4),
+                      const SizedBox(height: 40),
+                      TextFormField(
+                        validator: _isValid,
+                        decoration: const InputDecoration(
+                            prefixIcon: Icon(LineIcons.key),
+                            suffixIcon: Icon(LineIcons.eyeSlashAlt),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.green),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black45),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
+                                width: 2,
+                              ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                            ),
+                            hintText: "Entrer votre mot de passe",
+                            labelText: "Mot de passe"),
                       ),
-                    ),
-                  )
-                ],
-              )),
-        )));
+                      const SizedBox(height: 40),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 80.0),
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(),
+                            backgroundColor: AppColors.primaryColor,
+                            foregroundColor: AppColors.trueWhiteColor,
+                            elevation: 0,
+                          ),
+                          onPressed: _checkform,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child:
+                                Text('Se connecter', style: AppText.headline4),
+                          ),
+                        ),
+                      )
+                    ],
+                  )),
+            ));
+          },
+        ));
   }
 }
