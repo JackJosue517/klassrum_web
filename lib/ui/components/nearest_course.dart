@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:klassrum_web/ui/screens/call_room.dart';
 
 class NearestCourse extends StatelessWidget {
   const NearestCourse({super.key});
@@ -33,7 +34,8 @@ class NearestCourse extends StatelessWidget {
                   ),
                 ),
                 child: InkWell(
-                  onTap: () => Navigator.of(context).pushNamed("/call-room"),
+                  onTap: () => Navigator.of(context).pushNamed("/call-room",
+                      arguments: CallArguments('uid', 'jackzo', 'Jack517')),
                   child: const Icon(
                     Icons.play_arrow,
                     color: Colors.white,
