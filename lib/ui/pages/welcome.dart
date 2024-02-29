@@ -11,7 +11,6 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,18 +87,16 @@ class _WelcomePageState extends State<WelcomePage> {
                   ),
                 )),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             const Divider(
               color: Colors.black45,
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             InkWell(
-              onTap: () {
-                
-              },
+              onTap: () {},
               child: LinkWell(
                 'En savoir plus sur klassrum3.web.app/about',
                 listOfNames: const {

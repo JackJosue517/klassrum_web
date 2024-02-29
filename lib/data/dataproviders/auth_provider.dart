@@ -17,7 +17,7 @@ class AuthDataProvider {
           }));
 
       if (response.statusCode != 200) {
-        return 'Une erreur inattendue est survenue !!!!';
+        throw response.body; //'Une erreur inattendue est survenue !!!!';
       }
       return response.body;
     } catch (e) {
@@ -34,7 +34,7 @@ class AuthDataProvider {
       );
 
       if (response.statusCode != 200) {
-        return jsonEncode({'code': 'E'});
+        throw response.body;
       }
       return response.body;
     } catch (e) {

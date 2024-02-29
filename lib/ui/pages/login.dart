@@ -23,13 +23,11 @@ class _LoginPageState extends State<LoginPage> {
     return null;
   }
 
-
   void _checkform() {
     if (_formKey.currentState!.validate()) {
       //if the form is valid, ...
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +38,21 @@ class _LoginPageState extends State<LoginPage> {
         ),
         body: BlocConsumer<AuthBloc, AuthState>(
           listener: (context, state) {
-            if(state is AuthFailure) {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.error,),),);
+            if (state is AuthFailure) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    state.error,
+                  ),
+                ),
+              );
             }
           },
           builder: (context, state) {
-            if(state is AuthLoading){
-              return const Center(child: CircularProgressIndicator(),);
+            if (state is AuthLoading) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             }
 
             return Center(
@@ -129,11 +135,12 @@ class _LoginPageState extends State<LoginPage> {
                             foregroundColor: AppColors.trueWhiteColor,
                             elevation: 0,
                           ),
-                          onPressed: ()  {
+                          onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               final username = _usernameTextController.text;
                               final password = _passwordTextController.text;
-                              context.read<AuthBloc>().add(AuthLoginRequested(username: username, password: password));
+                              context.read<AuthBloc>().add(AuthLoginRequested(
+                                  username: username, password: password));
                             }
                           },
                           child: Padding(

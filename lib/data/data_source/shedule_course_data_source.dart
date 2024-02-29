@@ -28,8 +28,7 @@ final tableData = [
   {
     "code": "002",
     "intitule": "les concepts de base ",
-    "chapitre":
-        "les concepts de base gehzjkhg  aezfezvnzejge ezjgrkhrz ekyuzekherz  ",
+    "chapitre": "les concepts de base",
     "description":
         "sghhjks dnbfna ghjlkmlkj hnbv nds,xm lkjhgf zadhhlmlk zbncvn",
     "nombreEtudiants": 20,

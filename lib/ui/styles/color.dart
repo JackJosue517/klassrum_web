@@ -14,7 +14,7 @@ class AppColors {
   static const Color statistiqueCancelCardColor =
       Color.fromARGB(255, 255, 0, 0);
   static const Color formularTextColor = Color(0x00000000);
-  static const Color editbuttonColor = Colors.green;
+  static const Color upCommingStatutColor = Colors.teal;
   static const Color duringButtonColor = Colors.purple;
   static const Color cancelButtonColor = Color(0xFF0B66D0);
   static const Color passButtonColor = Color.fromARGB(255, 255, 0, 0);
@@ -25,4 +25,6 @@ class AppColors {
   static const Color cancelCourseSpaceColor =
       Color.fromARGB(255, 216, 223, 231);
   static const Color deleteButtonColor = Color.fromARGB(255, 255, 0, 0);
+  static const Color duringstatutColor = Colors.orange;
+  static const Color terminatestatutColor = Colors.grey;
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:klassrum_web/data/models/app_shedule_course.dart';
+import 'package:klassrum_web/ui/pages/during_view_more.dart';
 import 'package:klassrum_web/ui/pages/reprogram_page.dart';
-import 'package:klassrum_web/ui/pages/view_more.dart';
+import 'package:klassrum_web/ui/pages/terminated_view_more.dart';
+import 'package:klassrum_web/ui/pages/upcomming_view_more.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
 import 'package:klassrum_web/util/table_model.dart';
 
@@ -117,8 +119,12 @@ class _MyTableState extends State<CoursProgram> {
     switch (statut) {
       case "Annulé":
         return ReprogramPage(sheduledCourse: sheduledCourse);
+      case "Terminé":
+        return TerminatedViewMorePage(sc: sheduledCourse);
+      case "En cours":
+        return DuringViewMorePage(sc: sheduledCourse);
       default:
-        return ViewMorePage(sheduledCourse: sheduledCourse);
+        return UpCommigViewMorePage(sc: sheduledCourse);
     }
   }
 }

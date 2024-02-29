@@ -15,9 +15,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthLoginRequested>(_onAuthLoginRequested);
   }
 
-  FutureOr<void> _onAuthLoginRequested(AuthLoginRequested event, Emitter<AuthState> emit) async{
+  FutureOr<void> _onAuthLoginRequested(
+      AuthLoginRequested event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
-    try{
+    try {
       final username = event.username;
       final password = event.password;
 
@@ -27,8 +28,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       final user = await authRepository.getAppUser(username, password);
       return emit(AuthSuccess(userModel: user));
-    } catch(e) {
+    } catch (e) {
       return emit(AuthFailure(e.toString()));
-    }   
+    }
   }
 }
