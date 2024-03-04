@@ -1,14 +1,14 @@
 class ShedulerCourse {
-  final String code;
-  final String intitule;
-  final String chapitre;
-  final String description;
-  final String enseignant;
-  final String status;
-  final String date;
-  final String heureFin;
-  final String heureDebut;
-  final int nombreEtudiants;
+  String code;
+  String intitule;
+  String chapitre;
+  String description;
+  String enseignant;
+  String status;
+  String date;
+  String heureFin;
+  String heureDebut;
+  int nombreEtudiants;
 
   ShedulerCourse(
       {required this.code,

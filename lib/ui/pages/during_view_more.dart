@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:klassrum_web/data/models/app_shedule_course.dart';
 import 'package:klassrum_web/ui/components/app_button.dart';
+import 'package:klassrum_web/ui/components/unchangeable_checkbox.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
+import 'package:klassrum_web/ui/screens/call_room.dart';
 
 class DuringViewMorePage extends StatefulWidget {
   const DuringViewMorePage({super.key, required this.sc});
@@ -12,8 +14,10 @@ class DuringViewMorePage extends StatefulWidget {
 }
 
 class _DuringViewMorePageState extends State<DuringViewMorePage> {
+  
   void ontaponMeet() {
-    Navigator.of(context).pushNamed("/call-room");
+    Navigator.of(context).pushNamed("/call-room",
+        arguments: CallArguments('uid', 'jackzo', 'Jack517'));
   }
 
   @override
@@ -54,7 +58,7 @@ class _DuringViewMorePageState extends State<DuringViewMorePage> {
                 children: [
                   Text(
                     widget.sc.intitule,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: AppColors.buttonColors,
@@ -74,9 +78,9 @@ class _DuringViewMorePageState extends State<DuringViewMorePage> {
                           children: <Widget>[
                             Row(
                               children: [
-                                Text(
+                                const Text(
                                   "Cours: ",
-                                  style: const TextStyle(fontSize: 18),
+                                  style: TextStyle(fontSize: 18),
                                 ),
                                 Text(
                                   widget.sc.code,
@@ -86,9 +90,9 @@ class _DuringViewMorePageState extends State<DuringViewMorePage> {
                             ),
                             Row(
                               children: [
-                                Text(
+                                const Text(
                                   "Professeur: ",
-                                  style: const TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 16),
                                 ),
                                 Text(
                                   widget.sc.enseignant,
@@ -118,9 +122,9 @@ class _DuringViewMorePageState extends State<DuringViewMorePage> {
                                   children: <Widget>[
                                     Row(
                                       children: [
-                                        Text(
+                                        const Text(
                                           "Statut: ",
-                                          style: const TextStyle(fontSize: 16),
+                                          style: TextStyle(fontSize: 16),
                                         ),
                                         Text(
                                           widget.sc.status,
@@ -173,6 +177,7 @@ class _DuringViewMorePageState extends State<DuringViewMorePage> {
                                       widget.sc.heureDebut,
                                       style: const TextStyle(
                                           fontSize: 16,
+                                          fontWeight: FontWeight.bold,
                                           color: AppColors.buttonTextColors),
                                     ),
                                   ],
@@ -190,12 +195,26 @@ class _DuringViewMorePageState extends State<DuringViewMorePage> {
                                       widget.sc.heureFin,
                                       style: const TextStyle(
                                           fontSize: 16,
+                                          fontWeight: FontWeight.bold,
                                           color: AppColors.buttonTextColors),
                                     ),
                                   ],
                                 ),
                               ],
                             ),
+                          ),
+                        ),
+                        const Gap(10),
+                        Center(
+                          child: Wrap(
+                            children: [
+                              UnchangeableCheckBox(
+                                  speciality: "speciality 1", isChecked: true),
+                              UnchangeableCheckBox(
+                                  speciality: "speciality 2", isChecked: true),
+                              UnchangeableCheckBox(
+                                  speciality: "speciality 3", isChecked: false)
+                            ],
                           ),
                         ),
                         const Gap(10),
@@ -208,7 +227,7 @@ class _DuringViewMorePageState extends State<DuringViewMorePage> {
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
-                            Gap(8),
+                            const Gap(8),
                             Expanded(
                               child: Text(
                                 widget.sc.description,

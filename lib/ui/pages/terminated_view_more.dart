@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:klassrum_web/data/models/app_shedule_course.dart';
+import 'package:klassrum_web/ui/components/unchangeable_checkbox.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
 
 class TerminatedViewMorePage extends StatefulWidget {
@@ -49,7 +50,7 @@ class _TerminatedViewMorePageState extends State<TerminatedViewMorePage> {
                 children: [
                   Text(
                     widget.sc.intitule,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: AppColors.buttonColors,
@@ -69,9 +70,9 @@ class _TerminatedViewMorePageState extends State<TerminatedViewMorePage> {
                           children: <Widget>[
                             Row(
                               children: [
-                                Text(
+                                const Text(
                                   "Cours: ",
-                                  style: const TextStyle(fontSize: 18),
+                                  style: TextStyle(fontSize: 18),
                                 ),
                                 Text(
                                   widget.sc.code,
@@ -81,9 +82,9 @@ class _TerminatedViewMorePageState extends State<TerminatedViewMorePage> {
                             ),
                             Row(
                               children: [
-                                Text(
+                                const Text(
                                   "Professeur: ",
-                                  style: const TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 16),
                                 ),
                                 Text(
                                   widget.sc.enseignant,
@@ -115,13 +116,14 @@ class _TerminatedViewMorePageState extends State<TerminatedViewMorePage> {
                                       children: [
                                         const Text(
                                           "Statut: ",
-                                          style: const TextStyle(fontSize: 16),
+                                          style: TextStyle(fontSize: 16),
                                         ),
                                         Text(
                                           widget.sc.status,
                                           style: const TextStyle(
                                               fontSize: 16,
-                                              color: AppColors.terminatestatutColor,
+                                              color: AppColors
+                                                  .terminatestatutColor,
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ],
@@ -167,6 +169,7 @@ class _TerminatedViewMorePageState extends State<TerminatedViewMorePage> {
                                       widget.sc.heureDebut,
                                       style: const TextStyle(
                                           fontSize: 16,
+                                          fontWeight: FontWeight.bold,
                                           color: AppColors.buttonTextColors),
                                     ),
                                   ],
@@ -184,12 +187,26 @@ class _TerminatedViewMorePageState extends State<TerminatedViewMorePage> {
                                       widget.sc.heureFin,
                                       style: const TextStyle(
                                           fontSize: 16,
+                                          fontWeight: FontWeight.bold,
                                           color: AppColors.buttonTextColors),
                                     ),
                                   ],
                                 ),
                               ],
                             ),
+                          ),
+                        ),
+                        const Gap(10),
+                        Center(
+                          child: Wrap(
+                            children: [
+                              UnchangeableCheckBox(
+                                  speciality: "speciality 1", isChecked: true),
+                              UnchangeableCheckBox(
+                                  speciality: "speciality 2", isChecked: true),
+                              UnchangeableCheckBox(
+                                  speciality: "speciality 3", isChecked: false)
+                            ],
                           ),
                         ),
                         const Gap(10),
@@ -202,7 +219,7 @@ class _TerminatedViewMorePageState extends State<TerminatedViewMorePage> {
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
-                            Gap(8),
+                            const Gap(8),
                             Expanded(
                               child: Text(
                                 widget.sc.description,

@@ -59,7 +59,7 @@ class _MyTableState extends State<CancelCourse> {
                                 context: context,
                                 builder: (context) {
                                   return Dialog(
-                                      child: ReprogramPage(sheduledCourse: e));
+                                      child: ReprogramPage(sc: e));
                                 },
                               );
                             },

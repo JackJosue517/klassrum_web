@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:klassrum_web/data/models/app_shedule_course.dart';
 import 'package:klassrum_web/ui/components/app_button.dart';
+import 'package:klassrum_web/ui/components/unchangeable_checkbox.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
 
 class UpCommigViewMorePage extends StatefulWidget {
@@ -86,7 +87,7 @@ class _UpCommigViewMorePageState extends State<UpCommigViewMorePage> {
                 children: [
                   Text(
                     widget.sc.intitule,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: AppColors.buttonColors,
@@ -106,9 +107,9 @@ class _UpCommigViewMorePageState extends State<UpCommigViewMorePage> {
                           children: <Widget>[
                             Row(
                               children: [
-                                Text(
+                                const Text(
                                   "Cours: ",
-                                  style: const TextStyle(fontSize: 18),
+                                  style: TextStyle(fontSize: 18),
                                 ),
                                 Text(
                                   widget.sc.code,
@@ -118,9 +119,9 @@ class _UpCommigViewMorePageState extends State<UpCommigViewMorePage> {
                             ),
                             Row(
                               children: [
-                                Text(
+                                const Text(
                                   "Professeur: ",
-                                  style: const TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 16),
                                 ),
                                 Text(
                                   widget.sc.enseignant,
@@ -150,9 +151,9 @@ class _UpCommigViewMorePageState extends State<UpCommigViewMorePage> {
                                   children: <Widget>[
                                     Row(
                                       children: [
-                                        Text(
+                                        const Text(
                                           "Statut: ",
-                                          style: const TextStyle(fontSize: 16),
+                                          style: TextStyle(fontSize: 16),
                                         ),
                                         Text(
                                           widget.sc.status,
@@ -185,7 +186,6 @@ class _UpCommigViewMorePageState extends State<UpCommigViewMorePage> {
                         ),
                         const Gap(10),
 
-                        // Heures du cours
                         Card(
                           color: AppColors.buttonColors,
                           child: Padding(
@@ -205,6 +205,7 @@ class _UpCommigViewMorePageState extends State<UpCommigViewMorePage> {
                                       widget.sc.heureDebut,
                                       style: const TextStyle(
                                           fontSize: 16,
+                                          fontWeight: FontWeight.bold,
                                           color: AppColors.buttonTextColors),
                                     ),
                                   ],
@@ -222,6 +223,7 @@ class _UpCommigViewMorePageState extends State<UpCommigViewMorePage> {
                                       widget.sc.heureFin,
                                       style: const TextStyle(
                                           fontSize: 16,
+                                          fontWeight: FontWeight.bold,
                                           color: AppColors.buttonTextColors),
                                     ),
                                   ],
@@ -230,6 +232,20 @@ class _UpCommigViewMorePageState extends State<UpCommigViewMorePage> {
                             ),
                           ),
                         ),
+                        const Gap(10),
+                        Center(
+                          child: Wrap(
+                            children: [
+                              UnchangeableCheckBox(
+                                  speciality: "speciality 1", isChecked: true),
+                              UnchangeableCheckBox(
+                                  speciality: "speciality 2", isChecked: true),
+                              UnchangeableCheckBox(
+                                  speciality: "speciality 3", isChecked: false)
+                            ],
+                          ),
+                        ),
+
                         const Gap(10),
                         // Description du cours
                         Row(
@@ -240,7 +256,7 @@ class _UpCommigViewMorePageState extends State<UpCommigViewMorePage> {
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
-                            Gap(8),
+                            const Gap(8),
                             Expanded(
                               child: Text(
                                 widget.sc.description,

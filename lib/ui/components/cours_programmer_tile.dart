@@ -118,7 +118,7 @@ class _MyTableState extends State<CoursProgram> {
   Widget getRespectiveDialogPage(String statut, ShedulerCourse sheduledCourse) {
     switch (statut) {
       case "Annulé":
-        return ReprogramPage(sheduledCourse: sheduledCourse);
+        return ReprogramPage(sc: sheduledCourse);
       case "Terminé":
         return TerminatedViewMorePage(sc: sheduledCourse);
       case "En cours":

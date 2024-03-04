@@ -11,7 +11,7 @@ import 'package:klassrum_web/ui/configs/themes.dart';
 import 'package:klassrum_web/ui/screens/home.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  /*WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
   // You may set the permission requests to "provisional" which allows the user to choose what type
@@ -21,7 +21,7 @@ void main() async {
 
   final fcmToken = await FirebaseMessaging.instance
       .getToken(vapidKey: notifications["publicKey"]);
-  print(fcmToken);
+  print(fcmToken);*/
 
   runApp(const MyApp());
 }
