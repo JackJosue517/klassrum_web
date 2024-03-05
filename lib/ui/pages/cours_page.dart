@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:klassrum_web/ui/components/cours_programmer_tile.dart';
+import 'package:klassrum_web/ui/components/add_shedulder_course_form.dart';
 import 'package:klassrum_web/ui/components/navigation_drawer.dart';
 import 'package:klassrum_web/ui/styles/color.dart';
 import 'package:klassrum_web/util/utils.dart';
@@ -57,9 +58,7 @@ class _CoursPageState extends State<CoursPage> {
                     showDialog(
                       context: context,
                       builder: (context) {
-                        return const Dialog(
-                          child: Text("Correct"),
-                        );
+                        return const Dialog(child: AddShedulerCourseForm(),);
                       },
                     );
                   },
@@ -84,6 +83,4 @@ class _CoursPageState extends State<CoursPage> {
       ),
     );
   }
-
-  
 }

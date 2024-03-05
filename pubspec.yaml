@@ -33,6 +33,7 @@ dependencies:
   cached_network: ^2.1.0
   cached_network_image: ^3.3.1
   cupertino_icons: ^1.0.2
+  date_format_field: ^0.1.0
   firebase_core: ^2.25.5
   firebase_messaging: ^14.7.17
   flutter:
@@ -50,6 +51,7 @@ dependencies:
   intl: null
   line_icons: ^2.0.3
   linkwell: ^2.0.6
+  multi_dropdown: ^2.1.4
   sdp_transform: ^0.3.2
   shared_preferences: ^2.2.2
   smooth_page_indicator: ^1.1.0
