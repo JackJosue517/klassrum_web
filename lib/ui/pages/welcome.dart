@@ -37,7 +37,7 @@ class _WelcomePageState extends State<WelcomePage> {
     return Expanded(
       flex: 1,
       child: Padding(
-        padding: const EdgeInsets.all(45.0),
+        padding: const EdgeInsets.all(35.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
