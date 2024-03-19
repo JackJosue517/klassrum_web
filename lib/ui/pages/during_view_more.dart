@@ -244,7 +244,7 @@ class _DuringViewMorePageState extends State<DuringViewMorePage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       AppButton(
-                          text: "Rejoindre la salle",
+                          text: "Aller en salle",
                           couleur: AppColors.duringstatutColor,
                           onTapActions: () => ontaponMeet()),
                     ],

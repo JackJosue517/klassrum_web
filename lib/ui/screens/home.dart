@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     // final user = (context.watch<AuthBloc>().state as AuthSuccess).userModel;
     if (context.read<AuthBloc>().state is AuthInitial) {
-      return const DashboardPage(); //WelcomePage();
+      return const WelcomePage();
     } else {
       return const DashboardPage();
     }

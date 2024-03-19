@@ -12,7 +12,7 @@ List<ShedulerCourse> getData(String selectOption) {
           .where((element) => element.status == "A venir")
           .toList();
 
-    case "Passé":
+    case "Terminé":
       return shedulerCourses
           .where((element) => element.status == "Terminé")
           .toList();

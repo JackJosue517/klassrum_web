@@ -19,7 +19,7 @@ class _WelcomePageState extends State<WelcomePage> {
           actions: const [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 12.0),
-              child: Text('12:06 | mar. 20 févr.'),
+              child: Text('09:30 | mer. 19 mars.'),
             ),
           ],
         ),
@@ -115,10 +115,10 @@ class _WelcomePageState extends State<WelcomePage> {
     //See the right section of https://meet.google.com
     return Expanded(
       flex: 1,
-      child: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: Colors.blue,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Image.network(
+            'https://cdn.futura-sciences.com/sources/images/Formation-en-ligne.jpeg'),
       ),
     );
   }

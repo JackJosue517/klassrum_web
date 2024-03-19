@@ -1,9 +1,8 @@
 //* ZEGO APP ID
-const int appID = 1142574398;
+const int appID = 417457760;
 
-//* ZEGO APP SIGN
-const String appSign =
-    'f113e295601ef883a963eec14460058ba2b5e9408c4cf3dff80bcb38bc4e3f1c';
+//* ZEGO APP server secret
+const String serverSECRET = 'd756cae87bc3debab10abc9ca9e47444';
 
 const notifications = {
   "subject": "mailto: <jackjosue517@gmail.com>",

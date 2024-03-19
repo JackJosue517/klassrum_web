@@ -30,7 +30,7 @@ class _CoursPageState extends State<CoursPage> {
                   selectedSortOption = newValue!;
                 });
               },
-              items: <String>['Tout', 'Passé', 'A venir', 'Annulé']
+              items: <String>['Tout', 'Terminé', 'A venir', 'Annulé']
                   .map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,

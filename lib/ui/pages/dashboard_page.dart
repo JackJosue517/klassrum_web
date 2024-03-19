@@ -27,24 +27,24 @@ class _DashboardPageState extends State<DashboardPage> {
               padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
               color: AppColors.dashboardBackgroundColors,
               child: Column(children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     StatistiqueCard(
                         couleur: AppColors.statistiqueCommingCardColor,
                         icon: "assets/img/online-learning.png",
                         titre: "Cours programmés",
-                        valeur: 5),
+                        valeur: (getData("Tout")).length),
                     StatistiqueCard(
                         couleur: AppColors.statistiqueAlreadyCardColor,
                         icon: "assets/img/online-learning.png",
                         titre: "Cours faits",
-                        valeur: 4),
+                        valeur: (getData("Terminé")).length),
                     StatistiqueCard(
                         couleur: AppColors.statistiqueCancelCardColor,
                         icon: "assets/img/online-learning.png",
                         titre: "Cours annulés",
-                        valeur: 1),
+                        valeur: (getData("Annulé")).length),
                   ],
                 ),
                 const Gap(20),
