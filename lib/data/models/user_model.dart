@@ -58,7 +58,7 @@ class UserModel {
       lastname: map['lastname'],
       firstname: map['firstname'],
       email: map['email'],
-      pic: "",
+      pic: "assets/img/default_profil.jpg",
       password: map['password'],
     );
   }
