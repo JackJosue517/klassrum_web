@@ -35,8 +35,8 @@ class NearestCourse extends StatelessWidget {
                 ),
                 child: InkWell(
                   onTap: () => Navigator.of(context).pushNamed("/call-room",
-                      arguments:
-                          CallArguments('call-01', 'M. HOETOWOU', 'jack-517')),
+                      arguments: CallArguments(
+                          'hoet01', 'M. Daniel ANAKPA', 'call01')),
                   child: const Icon(
                     Icons.play_arrow,
                     color: Colors.white,
