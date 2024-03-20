@@ -75,7 +75,6 @@ class _CoursPageState extends State<CoursPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 0),
                 child:
                     CoursProgram(sheduledCourses: getData(selectedSortOption)),
-                //Column(children: List.generate(3, (index) => const MyApp())),
               ),
             )
           ],

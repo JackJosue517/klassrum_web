@@ -10,6 +10,8 @@ class ScheduleDataProvider {
         headers: {'Authorization': 'Bearer $token'},
       );
 
+      print(response);
+
       if (response.statusCode != 200) {
         throw response.body;
       }
