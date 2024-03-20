@@ -58,7 +58,7 @@ class UserModel {
       lastname: map['lastname'] as String,
       firstname: map['firstname'] as String,
       email: map['email'] as String,
-      pic: map['pic'] as String,
+      pic: "",
       password: map['password'] as String,
     );
   }

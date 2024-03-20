@@ -17,7 +17,7 @@ class AuthDataProvider {
           }));
 
       if (response.statusCode != 200) {
-        throw response.body; //'Une erreur inattendue est survenue !!!!';
+        throw response.body;
       }
       return response.body;
     } catch (e) {
